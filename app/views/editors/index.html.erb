@@ -1,0 +1,8 @@
+Editor
+<button id="exec">実行</button>
+<div id="container" style="width:600px;height:400px;border:1px solid grey"></div>
+コンソール
+<div id="console" style="width:600px;height:200px;border:1px solid grey"></div>
+<% content_for :javascript do %>
+  <%= javascript_pack_tag 'editors/index' %>
+<% end %>
