@@ -16,3 +16,7 @@ require("@rails/ujs").start()
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+import init_app from '../opal/opal_loader.rb';
+init_app();
+Opal.load('opal_loader');

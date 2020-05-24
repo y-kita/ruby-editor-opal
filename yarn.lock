@@ -4821,6 +4821,14 @@ once@^1.3.0, once@^1.3.1, once@^1.4.0:
   dependencies:
     wrappy "1"
 
+opal-webpack-loader@^0.9.11:
+  version "0.9.11"
+  resolved "https://registry.yarnpkg.com/opal-webpack-loader/-/opal-webpack-loader-0.9.11.tgz#87d413155f4381cb6b18475ad59987c08ad018a7"
+  integrity sha512-5zw8A2WV2Wvr6f4FNvokDE5aSNT0Djbrc9PkpBlEOMxy9rOyX1zZzn4mELh0JTLyAZ/s8c18V7p//Yo9PqcCDg==
+  dependencies:
+    loader-utils "^1.2.3"
+    webpack "^4.30.0"
+
 opn@^5.5.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/opn/-/opn-5.5.0.tgz#fc7164fab56d235904c51c3b27da6758ca3b9bfc"
@@ -7436,7 +7444,7 @@ webpack-sources@^1.0.0, webpack-sources@^1.0.1, webpack-sources@^1.1.0, webpack-
     source-list-map "^2.0.0"
     source-map "~0.6.1"
 
-webpack@^4.41.2:
+webpack@^4.30.0, webpack@^4.41.2:
   version "4.43.0"
   resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.43.0.tgz#c48547b11d563224c561dad1172c8aa0b8a678e6"
   integrity sha512-GW1LjnPipFW2Y78OOab8NJlCflB7EFskMih2AHdvjbpKMeDJqEgSx24cXXXiPS65+WSwVyxtDsJH6jGX2czy+g==

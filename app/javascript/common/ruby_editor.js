@@ -1,18 +1,19 @@
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api'
-
+var console_message = []
 export default {
   create(code) {
-    monaco.editor.create(document.getElementById('container'), {
+    const editor = monaco.editor.create(document.getElementById('container'), {
       value: code || '# ここから書いてください\nputs "Hello, world"\n\n\n',
       language: 'ruby',
       theme: "vs-dark",
-      useTabStops: true,
-      tabCompletion: "on",
       tabSize: 2,
+      insertSpaces: true,
+      autoIndent: true,
       minimap: { enabled: false },
       automaticLayout: true,
     });
-  
+    editor.getAction('editor.action.formatDocument').run().then();
+
     monaco.editor.create(document.getElementById('console'), {
       value: "",
       language: 'ruby',
@@ -25,11 +26,26 @@ export default {
   },
   output(text) {
     const model = monaco.editor.getModels()[1];
-    model.setValue(text)
+    let message = ""
+    try {
+      // evalの結果がコンソールに出力されるので、変数(console_message)に入れるようにする
+      console_message = [];
+      var console = Opal.global.console;
+      console.log = function(s){ console_message.push(s) };
+      window.console = console;
+      eval(text)
+      message = console_message.join("")
+    }
+    catch (e) {
+      console.log(e)
+      console.log(e.message)
+      message = e.message
+    }
+    model.setValue(message)
   },
-  async exec() {
+  async compile() {
     const code = monaco.editor.getModels()[0].getValue();
-    console.log(code)
+    // console.log(code)
     try {
       return await $.ajax({
         url: "/api/v1/posts",
@@ -38,7 +54,7 @@ export default {
         contentType: 'application/json'
       })
     } catch (e) {
-      console.log(e)
+      // console.log(e)
     }
   }
 }

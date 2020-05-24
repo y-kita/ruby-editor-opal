@@ -9,6 +9,7 @@
     "jquery": "^3.5.1",
     "monaco-editor": "^0.20.0",
     "monaco-editor-webpack-plugin": "^1.9.0",
+    "opal-webpack-loader": "^0.9.11",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
